@@ -5,15 +5,17 @@ class Pokemon extends Component {
 		super(props);
 		this.state = {
 			id: props.id,
-			sprites: {}
+			data: {
+				sprites: {}
+			}
 		};
 	}
 
 	render() {
 		return (
 			<div>
-				<img src={this.state.sprites.front_default} />
-				<p>{this.state.name} rules !</p>
+				<img src={this.state.data.sprites.front_default} />
+				<p>{this.state.data.name} rules !</p>
 			</div>
 		);
 	}
@@ -26,7 +28,9 @@ class Pokemon extends Component {
 		fetch('https://pokeapi.co/api/v2/pokemon/' + this.state.id)
 			.then(response => response.json())
 			.then(responseJson => { console.log(this.state.id); console.log(responseJson); return responseJson; })
-			.then(responseJson => this.setState(responseJson));
+			.then(responseJson => this.setState({
+				data: responseJson
+			}));
 	}
 }
 
