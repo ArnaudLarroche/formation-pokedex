@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {getFirstAbility} from './Pokemon.service';
+import {getFirstAbility,convertPoundsToKilograms} from './Pokemon.service';
 
 class Pokemon extends Component {
 	constructor(props) {
@@ -20,6 +20,7 @@ class Pokemon extends Component {
 				<img src={this.state.data.sprites.front_default} alt=""/>
 				<ul>
 					<li>First ability : {getFirstAbility(this.state.data)}</li>
+					<li>Weight : {convertPoundsToKilograms(this.state.weight)}kg</li>
 				</ul>
 			</div>
 		);
