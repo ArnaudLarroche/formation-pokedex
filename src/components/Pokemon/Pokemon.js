@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {getFirstAbility} from './Pokemon.service';
 
 class Pokemon extends Component {
 	constructor(props) {
@@ -6,7 +7,8 @@ class Pokemon extends Component {
 		this.state = {
 			id: props.id,
 			data: {
-				sprites: {}
+				sprites: {},
+				abilities: []
 			}
 		};
 	}
@@ -14,8 +16,11 @@ class Pokemon extends Component {
 	render() {
 		return (
 			<div>
-				<img src={this.state.data.sprites.front_default} />
-				<p>{this.state.data.name} rules !</p>
+				<h3>{this.state.data.name}</h3>
+				<img src={this.state.data.sprites.front_default} alt=""/>
+				<ul>
+					<li>First ability : {getFirstAbility(this.state.data)}</li>
+				</ul>
 			</div>
 		);
 	}
