@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Pokemon from './components/Pokemon/Pokemon.js';
 
 class App extends Component {
   constructor(props) {
@@ -20,6 +21,7 @@ class App extends Component {
         <p className="App-intro">
 	  The best pokemon is {this.state.pokemon.name} !
         </p>
+	<Pokemon />
       </div>
     );
   }
