@@ -18,26 +18,11 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <p className="App-intro">
-	  The best pokemon is {this.state.pokemon.name} !
-        </p>
-	<Pokemon />
+	<Pokemon id="12" />
       </div>
     );
   }
 
-  componentDidMount() {
-    this.getPokemon();
-  }
-
-  getPokemon() {
-    fetch('https://pokeapi.co/api/v2/pokemon/bulbasaur')
-      .then(response => response.json())
-      .then(responseJson => { console.log(responseJson); return responseJson; })
-      .then(responseJson => this.setState({
-        pokemon: responseJson
-      }));
-  }
 }
 
 export default App;
